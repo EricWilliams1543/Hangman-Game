@@ -1,0 +1,140 @@
+header{
+	border: 5px solid #FF0;
+	margin-left:325px;
+	margin-right:325px;
+}
+
+h1{
+	font-family: 'Monofett', cursive;
+	font-size:80px;
+	text-align:center;
+	color:#FF0;
+}
+
+h2, h6{
+	font-family: 'Fascinate', cursive;
+	text-align:center;
+	color:#FF0;
+}
+
+body{
+	background-color:#000;
+	font-family: 'Fascinate';
+	letter-spacing: 1px;
+	color:#FF0;
+}
+
+footer{
+	border: 5px solid #FF0;
+	margin-left:325px;
+	margin-right:325px;
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:center;
+}
+
+#blanks, #lettersGuessed{
+	background-color:#000;
+	border: 2px solid #FF0;
+	margin-left: 40px;
+	margin-right:40px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+#blanks{
+	font-size:30px;
+	font-family:"Times New Roman";
+}
+
+#var1{
+	position:relative;
+	background-color:#000;
+	color:#00F;
+	border: 2px solid #00F;
+	margin-right: 200px;
+	margin-left:200px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	padding-top:20px;
+	padding-bottom:40px;
+}
+
+#guessesRemaining{
+	position:absolute;
+	margin-left:75px;
+
+}
+
+#frame{
+	margin:0 auto;
+	background-image:url('../images/Film.jpg');
+	border:5px solid #777;
+	max-height:700px;
+	height:700px;
+	max-width:700px;
+	width:700px;
+	position: relative;
+	padding-top:50px;
+}
+
+#main-container{
+	text-align:center;
+	background-image:url('../images/footer_lodyas.png');
+	padding-top:0px;
+	max-height:500px;
+	height:500px;
+	max-width:580px;
+	width:580px;
+	margin:60px;
+	border:5px solid #777;
+	position:absolute;
+}
+
+#var3{
+	float:left;
+	margin-left:60px;
+	color:#0F0;
+	background-color:#000;
+	position:relative;
+	border:2px solid #0F0;
+	padding-bottom:30px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+}
+
+#wins{
+	float:left;
+	margin-left:20px;
+	color:#0F0;
+	position:absolute;
+}
+
+#var4{
+	float:right;
+	margin-right:60px;
+	color:#F00;
+	background-color:#000;
+	position:relative;
+	border:2px solid #F00;
+	padding-bottom:30px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+}
+
+#losses{
+	float:right;
+	margin-left:25px;
+	color:#F00;
+    position:absolute;
+}
+
+.container{
+	border: 2px solid #FF0;
+	text-align:center;
+	height:60px;
+	width:200px;
+}
+

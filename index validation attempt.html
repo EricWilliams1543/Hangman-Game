@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Hangman Game</title>
+	<!-- Latest Twitter Bootstrap compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Fascinate|Monofett" rel="stylesheet">
+</head>
+
+	<body>
+
+		<header>
+			<h1>HANGMAN</h1>
+			<h2>Cinema Edition</h2>
+		</header>
+			<h6>Press any key to start!</h6>
+
+			<section id="frame">
+				<section id="main-container" class="col">
+							<br>
+					<div id="intro">Can you guess the name of the hit film?</div>
+							<br>
+					<div id="var1">Guesses Remaining</div>
+							<br>
+						<div id="guessesRemaining"></div>
+							<br>
+					<div class="2divs">
+						<h4 id="theWord">Current Word</h4>
+								<br>
+							<h4 id="blanks"></h4>
+								<br>
+					</div>
+					<div id="var2">Letters Already Guessed</div>
+							<br>
+						<div id="lettersGuessed"></div>
+							<br>
+					<div id="var3">Wins</div>
+							<br>
+						<div id="wins"></div>
+							<br>
+					<div id="Debug"></div>
+					<div id="Debug2"></div>
+				</section>
+			</section>
+
+		<script>
+		// Variables and links to their html contents.
+		var favFilms = ["ROMANCING THE STONE", "INCEPTION", "INTERSTELLAR", "EQUILIBRIUM", "THE OUTSIDERS", "THE WATERBOY", "DUMB AND DUMBER", "ALIENS", "TOMBSTONE", "JOE VS THE VOLCANO"];
+		// Keep track of words guessed right and display them
+		var wins = 0;
+		document.getElementById("wins").innerHTML = wins;
+		// Choose a random film title
+		var ranChoice = Math.floor(Math.random() * 10);
+		var randomFilm = favFilms[ranChoice];
+		// User gets a number of guesses equal to the film's length + 3
+		var allowedGuesses = randomFilm.length + 3;
+		// Keep track of user's number of guesses and guesses left and display them
+		var guessesTaken = 0;
+		var guessesRemaining = allowedGuesses - guessesTaken;
+		document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+		// Initialize array to change blanks to letters as they are guessed
+		var wordInProgress = [];
+		// Array to store letters already guessed then call to display them
+		var lettersGuessed = ['none'];
+		document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+		
+		document.getElementById("Debug").innerHTML = randomFilm;
+
+		var playAgain = true;
+
+		// Take the random film and make an array of same length with blanks _ instead
+		var filmBlanks = function(){
+		for(var i in randomFilm){
+				if(randomFilm[i] === " "){
+					wordInProgress.push("&nbsp;");
+				}
+				else{
+					wordInProgress.push("_");
+				}
+			}
+		};
+
+		// Transform array into string and display on page
+		filmBlanks();
+		var blankWord = wordInProgress.join(" ");
+		document.getElementById("blanks").innerHTML = blankWord;
+
+		// Function to replace the array of blanks as user guesses right letters
+		var updateWord = function(userKey){
+			for(var i in randomFilm){
+					if(randomFilm[i] === " "){
+						wordInProgress[i] = "&nbsp;";
+					}
+					else if(randomFilm[i] === userKey){
+						wordInProgress[i] = userKey;
+					}
+
+			}
+		};
+
+		// The win function
+		var win = function(){
+			if(wordInProgress.indexOf('_') === -1){
+				playAgain=false;
+				wins++;
+				document.getElementById("blanks").innerHTML = "You Won!";
+				document.getElementById("lettersGuessed").innerHTML = "";
+				document.getElementById("guessesRemaining").innerHTML = "";
+				document.getElementById("intro").innerHTML = "";
+				document.getElementById("theWord").innerHTML = "";
+				document.getElementById("var1").innerHTML = "";
+				document.getElementById("var2").innerHTML = "";
+				document.getElementById("var3").innerHTML = "";
+				document.getElementById("Debug").innerHTML = "";
+				document.getElementById("wins").innerHTML = "";
+			}
+			else if(guessesRemaining===0){
+				playAgain=false;
+				document.getElementById("blanks").innerHTML = "Game Over";
+				document.getElementById("lettersGuessed").innerHTML = "";
+				document.getElementById("guessesRemaining").innerHTML = "";
+				document.getElementById("intro").innerHTML = "";
+				document.getElementById("theWord").innerHTML = "";
+				document.getElementById("var1").innerHTML = "";
+				document.getElementById("var2").innerHTML = "";
+				document.getElementById("var3").innerHTML = "";
+				document.getElementById("Debug").innerHTML = "";
+				document.getElementById("wins").innerHTML = "";
+			}
+		};
+
+		var restartGame = function(){
+			playAgain=true;
+		};
+
+		//****************************************************//
+		//******* Game starts with user keyboard event *******//
+		//****************************************************//
+
+		document.onkeyup = function(event) {
+		
+		var userKey = event.key.toUpperCase();
+
+		updateWord(userKey);
+		blankWord = wordInProgress.join(" ");
+		document.getElementById("blanks").innerHTML = blankWord;
+
+		// Get rid of lettersGuessed array placeholder
+		if(lettersGuessed[0]==="none" && playAgain === true){
+				lettersGuessed.pop();
+			}
+        
+		//  Keep track of letters already guessed, doesn't add duplicates
+		if(lettersGuessed.indexOf(event.key.toUpperCase())==='A' || lettersGuessed.indexOf(event.key.toUpperCase())==='B' || lettersGuessed.indexOf(event.key.toUpperCase())==='C' || lettersGuessed.indexOf(event.key.toUpperCase())==='D' || lettersGuessed.indexOf(event.key.toUpperCase())==='E' || lettersGuessed.indexOf(event.key.toUpperCase())==='F' || lettersGuessed.indexOf(event.key.toUpperCase())==='G' || lettersGuessed.indexOf(event.key.toUpperCase())==='H' || lettersGuessed.indexOf(event.key.toUpperCase())==='I' || lettersGuessed.indexOf(event.key.toUpperCase())==='J' || lettersGuessed.indexOf(event.key.toUpperCase())==='K' || lettersGuessed.indexOf(event.key.toUpperCase())==='L' || lettersGuessed.indexOf(event.key.toUpperCase())==='M' || lettersGuessed.indexOf(event.key.toUpperCase())==='N' || lettersGuessed.indexOf(event.key.toUpperCase())==='O' || lettersGuessed.indexOf(event.key.toUpperCase())==='P' || lettersGuessed.indexOf(event.key.toUpperCase())==='Q' || lettersGuessed.indexOf(event.key.toUpperCase())==='R' || lettersGuessed.indexOf(event.key.toUpperCase())==='S' || lettersGuessed.indexOf(event.key.toUpperCase())==='T' || lettersGuessed.indexOf(event.key.toUpperCase())==='U' || lettersGuessed.indexOf(event.key.toUpperCase())==='V' || lettersGuessed.indexOf(event.key.toUpperCase())==='W' || lettersGuessed.indexOf(event.key.toUpperCase())==='X' || lettersGuessed.indexOf(event.key.toUpperCase())==='Y' || lettersGuessed.indexOf(event.key.toUpperCase())==='Z'){
+
+			console.log(event.key.toUpperCase());
+
+	        if(lettersGuessed.indexOf(event.key.toUpperCase())===-1){
+	        	lettersGuessed.push(event.key.toUpperCase());
+		        document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+		        guessesRemaining--;
+		        document.getElementById("guessesRemaining").innerHTML = guessesRemaining;	
+		    }
+
+
+        }
+        //Did user win?
+		win();
+      };
+
+
+
+		</script>
+
+		<footer>&#169; Copyright 2017 Eric Williams
+		</footer>
+	</body>
+</html>

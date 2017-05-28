@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Hangman Game</title>
+	<!-- Latest Twitter Bootstrap compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Fascinate|Monofett" rel="stylesheet">
+</head>
+
+	<body>
+	<header>
+			<h1>HANGMAN</h1>
+			<h2>Cinema Edition</h2>
+		</header>
+			<h6>Press any key to start!</h6>
+
+			<section id="frame">
+				<section id="main-container" class="col">
+					<div>Wins</div>
+						<div></div>
+					<div>Current Word</div>
+						<div></div>
+					<div>(Word as array)</div>
+						<div id="blanks"></div>
+					<div>Number of Guesses Remaining</div>
+						<div></div>
+					<div>(The number)</div>
+						<div></div>
+					<div>Letters Already Guessed</div>
+						<div></div>
+					<div>(Letters as Array)</div>
+					<div id="Debug"></div>
+					<div id="Debug2"></div>
+				</section>
+			</section>
+
+		<script>
+		var game = {
+			favFilms: ["Romancing the Stone", "Inception", "Interstellar", "Equilibrium", "Mulholland Drive", "The Waterboy", "Dumb and Dumber", "Aliens", "Tombstone", "Joe vs the Volcano"],
+			wins: 0,
+			ranChoice: function(){
+				Math.floor(Math.random() * 10)
+			},
+			randomFilm: favFilms[ranChoice],
+			allowedGuesses: randomFilm.length,
+			guessesTaken: 0,
+			wordInProgress: [],
+			lettersGuesses: []
+
+		}
+		
+		var filmBlanks = function(){
+			for(var i in randomFilm)
+				if(i===" "){
+					wordInProgress.push(" ");
+				}
+				else{
+					wordInProgress.push("__ ");
+					word = wordInProgress.join(" ");
+				}
+		};
+
+		filmBlanks();
+		document.getElementById("Debug2").innerHTML = word;
+
+		</script>
+		<footer>&#169; Copyright 2017 Eric Williams
+		</footer>
+	</body>
+</html>

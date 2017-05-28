@@ -1,0 +1,24 @@
+<link href="https://fonts.googleapis.com/css?family=Bangers|Bungee+Outline|Bungee+Shade|Cinzel|Cinzel+Decorative|Codystar|Cormorant+SC|Cormorant+Unicase|Creepster|Fascinate|Faster+One|Geo|Indie+Flower|Julius+Sans+One|Monofett|Rakkas|Rancho|Satisfy|Slackey|Trade+Winds" rel="stylesheet">
+Specify in CSS
+
+Use the following CSS rules to specify these families:
+font-family: 'Indie Flower', cursive;
+font-family: 'Bungee Outline', cursive;
+font-family: 'Cinzel', serif;
+font-family: 'Satisfy', cursive;
+font-family: 'Bangers', cursive;
+font-family: 'Julius Sans One', sans-serif;
+font-family: 'Rancho', cursive;
+font-family: 'Cinzel Decorative', cursive;
+font-family: 'Slackey', cursive;
+font-family: 'Faster One', cursive;
+font-family: 'Creepster', cursive;
+font-family: 'Geo', sans-serif;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Rakkas', cursive;
+font-family: 'Codystar', cursive;
+font-family: 'Monofett', cursive;
+font-family: 'Trade Winds', cursive;
+font-family: 'Cormorant SC', serif;
+font-family: 'Cormorant Unicase', serif;
+font-family: 'Fascinate', cursive;

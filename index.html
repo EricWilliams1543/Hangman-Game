@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<title>Hangman Game</title>
+	<!-- Latest Twitter Bootstrap compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Fascinate|Monofett" rel="stylesheet">
+</head>
+
+	<body>
+
+		<header>
+			<h1>HANGMAN</h1>
+			<h2>Cinema Edition</h2>
+		</header>
+			<h6>Press any key to get started!</h6>
+
+			<audio autoplay="autoplay" loop="true">
+		    <source src="assets/audio/moonlightVeryShort.wav" />     
+			</audio>
+
+			<section id="frame">
+				<section id="main-container" class="col">
+							<br>
+					<div id="var1">Guesses Left
+						<div id="guessesRemaining"></div>
+					</div>
+					<div class="2divs">
+						<h4 id="theWord">Current Film</h4>
+								<br>
+							<h4 id="blanks"></h4>
+								<br>
+					</div>
+					<div id="var2">Letters Already Guessed</div>
+							<br>
+						<div id="lettersGuessed"></div>
+							<br>
+					<div id="var3">&nbsp;Wins&nbsp;
+						<div id="wins"></div>
+					</div>
+
+					<div id="var4">Losses
+						<div id="losses"></div>
+					</div>
+				</section>
+			</section>
+
+		<footer>&#169; Copyright 2017 Eric Williams
+			<script src="assets/javascript/game.js"></script>
+		</footer>
+	</body>
+</html>

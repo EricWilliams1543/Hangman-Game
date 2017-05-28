@@ -1,0 +1,61 @@
+Create html skeleton
+	Header
+	Body w/image
+	Text
+		Formatted
+	Placeholder Text
+	Frame Image
+	Background color/image
+
+Identify and create variables
+Identify and create functions
+
+Win screen
+Lose screen
+
+letters already guessed
+	correct
+	incorrect
+
+current word
+_ _ _ _ _ _ _ _
+
+how to update current word
+	is guess in current word?
+		for loop
+
+	for(i in current word)
+		if guess === i
+
+flow 
+	pick a random word
+	display word spaces to user
+	allow user to guess
+	replace word spaces if guess in word
+	keep track of guesses 
+	
+Game over (Clear and reset variables and update ones that display)
+	choose new random word
+	new empty array
+	letters guessed = 0
+	guesses remaining = word.length
+
+		var ranChoice = Math.floor(Math.random() * 10);
+		var randomFilm = favFilms[ranChoice];
+		var wins = 0;
+		document.getElementById("wins").innerHTML = wins;
+		var guessesTaken = 0;
+		var guessesRemaining = allowedGuesses - guessesTaken;
+		document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+		var lettersGuessed = ['none'];
+		document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
+
+var ranChoice = Math.floor(Math.random() * 10);
+var randomFilm = favFilms[ranChoice];
+var wins = 0; 
+document.getElementById("wins").innerHTML = wins;
+var guessesTaken = 0;
+var guessesRemaining = allowedGuesses - guessesTaken;
+document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+var lettersGuessed = ['none'];
+document.getElementById("lettersGuessed").innerHTML = lettersGuessed;
